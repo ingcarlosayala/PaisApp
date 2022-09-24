@@ -1,21 +1,23 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h3>Por Capital</h3>
-            <hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <div class="container ">
+        <div class="row">
+            <div class="col">
+                <h3>Por Capital</h3>
+                <hr>
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <app-formulario-pais (OnEnter)="buscar($event)"
-                             placeholder="Buscar Capital..."
-                             (OnDebounce)="sugerencias($event)"></app-formulario-pais>
-    </div>
-
-    <div class="row">
-        <app-tabla-pais [paises]="paises"
-                        [hayError]="hayError"
-                        [termino]="termino"></app-tabla-pais>
+    
+        <div class="row">
+            <app-formulario-pais (OnEnter)="buscar($event)"
+                                 placeholder="Buscar Capital..."
+                                 (OnDebounce)="sugerencias($event)"></app-formulario-pais>
+        </div>
+    
+        <div class="row">
+            <app-tabla-pais [paises]="paises"
+                            [hayError]="hayError"
+                            [termino]="termino"></app-tabla-pais>
+        </div>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-<table *ngIf="!hayError && paises.length > 0"
+<table *ngIf="!hayError && paises.length > 0 "
       class="table w-100">
     <thead>
       <tr>
@@ -10,7 +10,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pais of paises; let i=index">
+      <tr *ngFor="let pais of paises; let i=index" 
+      class="animate__animated animate__fadeIn animate__faster">
         <td>{{i + 1}}</td>
         <td><img [src]="pais | imagen" 
                  style="width: 50px;" 
@@ -19,7 +20,11 @@
         <td>{{pais.name}}</td>
         <td>{{pais.population | number}}</td>
         <td>
-          <button class="btn btn-outline-dark btn-sm" [routerLink]="['/pais/ver',pais.alpha3Code]">
+          <button class="btn btn-outline-dark btn-sm"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Ver Pais"
+                  [routerLink]="['/pais/ver',pais.alpha3Code]">
             <i class="fa fa-magnifying-glass"></i>
           </button>
         </td>

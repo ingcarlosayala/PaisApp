@@ -29,7 +29,6 @@ export class PorCapitalComponent implements OnInit {
 
     this.paisServices.getCapital(this.termino = event)
        .subscribe(capital => {
-        console.log(capital);
         this.paises = capital;
 
 

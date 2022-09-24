@@ -30,7 +30,6 @@ export class PorPaisComponent implements OnInit {
 
     this.paisServices.getPais(this.termino = event)
        .subscribe(pais => {
-        console.log(pais);
         this.paises = pais;
 
 
@@ -41,7 +40,7 @@ export class PorPaisComponent implements OnInit {
   }
 
   sugerencias(termino:string){
-    this.hayError = false;
+    this.hayError = false; 
   }
 
 }
