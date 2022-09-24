@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://restcountries.com/v2/name'
+  baseUrl: 'https://restcountries.com/v2'
 };
 
 /*

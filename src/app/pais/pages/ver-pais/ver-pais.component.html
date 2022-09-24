@@ -1,0 +1,57 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1>Pais: <small>{{pais.name}}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <h3>Bandera</h3>
+            <img class=" img-thumbnail" [src]="pais | imagen" alt="">
+        </div>
+
+        <div class="col-12 col-md-8">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Poblacion:</strong>{{pais.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Codigo Numerico:</strong>{{pais.callingCodes[0]}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Codigo:</strong>{{pais.alpha3Code}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Capital:</strong> {{pais.capital}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Region:</strong> {{pais.region}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h3>Traducciones</h3>
+            <span class="badge">{{pais.translations.br}}</span>
+            <span class="badge">{{pais.translations.de}}</span>
+            <span class="badge">{{pais.translations.es}}</span>
+            <span class="badge">{{pais.translations.fa}}</span>
+            <span class="badge">{{pais.translations.fr}}</span>
+            <span class="badge">{{pais.translations.hr}}</span>
+            <span class="badge">{{pais.translations.hu}}</span>
+            <span class="badge">{{pais.translations.it}}</span>
+            <span class="badge">{{pais.translations.ja}}</span>
+            <span class="badge">{{pais.translations.nl}}</span>
+            <span class="badge">{{pais.translations.pt}}</span>
+        </div>
+    </div>
+</ng-template>
+

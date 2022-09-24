@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pais } from '../../interfaces/pais.interfaces';
 import { PaisService } from '../../services/pais.service';
@@ -11,6 +12,7 @@ export class PorPaisComponent implements OnInit {
 
   paises:Pais[] = [];
   termino:string = '';
+  hayError:boolean = false;
 
   constructor(private paisServices:PaisService) { }
 
@@ -19,11 +21,27 @@ export class PorPaisComponent implements OnInit {
   }
 
   buscar(event:string){
+
+    if (event != this.termino) {
+      setTimeout(() => {
+        this.hayError = false;
+      }, 4000);
+    }
+
     this.paisServices.getPais(this.termino = event)
-       .subscribe((pais) => {
+       .subscribe(pais => {
         console.log(pais);
         this.paises = pais;
+
+
+       }, err => {
+        this.hayError = true;
+        this.paises = [];
        })
+  }
+
+  sugerencias(termino:string){
+    this.hayError = false;
   }
 
 }

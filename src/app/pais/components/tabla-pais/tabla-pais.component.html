@@ -1,21 +1,35 @@
-<table class="table w-100">
+<table *ngIf="!hayError && paises.length > 0"
+      class="table w-100">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Bandera</th>
         <th scope="col">Pais</th>
         <th scope="col">Poblacion</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pais of paises; let i=index">
         <td>{{i + 1}}</td>
-        <td><img [src]="pais.flags.svg" 
+        <td><img [src]="pais | imagen" 
                  style="width: 50px;" 
                  alt="">
         </td>
         <td>{{pais.name}}</td>
         <td>{{pais.population | number}}</td>
+        <td>
+          <button class="btn btn-outline-dark btn-sm" [routerLink]="['/pais/ver',pais.alpha3Code]">
+            <i class="fa fa-magnifying-glass"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+<div *ngIf="hayError" class="alert alert-danger">
+  No hay contendo con el Nombre de {{termino}}
+</div>
+  
+  
+  

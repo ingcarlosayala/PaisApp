@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-formulario-pais',
@@ -8,15 +9,32 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FormularioPaisComponent implements OnInit {
 
   @Input() termino:string = '';
+  @Input() placeholder:string = '';
   @Output() OnEnter:EventEmitter<string> = new EventEmitter<string>;
+  @Output() OnDebounce: EventEmitter<string> = new EventEmitter();
+
+  debouncer:Subject<string> = new Subject();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.debouncer
+        .pipe(debounceTime(300))
+        .subscribe(valor => {
+          this.OnDebounce.emit(valor);
+        })
   }
 
   buscar(){
-    this.OnEnter.emit(this.termino);
+
+    if (this.termino.length > 0) {
+      this.OnEnter.emit(this.termino);
+    }
+    this.termino = '';
+  }
+
+  teclaPresionada(){
+    this.debouncer.next(this.termino);
   }
 
 }

@@ -7,10 +7,14 @@
     </div>
 
     <div class="row">
-        <app-formulario-pais (OnEnter)="buscar($event)"></app-formulario-pais>
+        <app-formulario-pais (OnEnter)="buscar($event)"
+                             placeholder="Buscar Pais..."
+                             (OnDebounce)="sugerencias($event)"></app-formulario-pais>
     </div>
 
     <div class="row">
-        <app-tabla-pais [paises]="paises"></app-tabla-pais>
+        <app-tabla-pais [paises]="paises"
+                        [hayError]="hayError"
+                        [termino]="termino"></app-tabla-pais>
     </div>
 </div>

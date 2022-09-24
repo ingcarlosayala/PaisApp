@@ -10,6 +10,9 @@ import { PaisPagesComponent } from './pages/pais-pages/pais-pages.component';
 import { FormsModule } from '@angular/forms';
 import { TablaPaisComponent } from './components/tabla-pais/tabla-pais.component';
 import { FormularioPaisComponent } from './components/formulario-pais/formulario-pais.component';
+import { SharedModule } from '../shared/shared.module';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { FormularioPaisComponent } from './components/formulario-pais/formulario
        PorPaisComponent,
        PaisPagesComponent,
        TablaPaisComponent,
-       FormularioPaisComponent
+       FormularioPaisComponent,
+       ImagenPipe,
+       VerPaisComponent
   ],
   imports: [
     CommonModule,
     PaisRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class PaisModule { }

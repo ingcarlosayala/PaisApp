@@ -9,6 +9,8 @@ import { Pais } from '../../interfaces/pais.interfaces';
 export class TablaPaisComponent implements OnInit {
 
   @Input() paises:Pais[] = [];
+  @Input() hayError!:boolean;
+  @Input() termino:string = '';
 
   constructor() { }
 
