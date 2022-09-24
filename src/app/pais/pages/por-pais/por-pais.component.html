@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Por Pais</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <form (ngSubmit)="buscar()" autocomplete="off">
+            <div class="input-group mb-3">
+                <input type="text" 
+                       class="form-control"
+                       name="termino"
+                       [(ngModel)]="termino" 
+                       placeholder="Buscar Pais...">
+                <button 
+                    class="btn btn-outline-primary" 
+                    type="submit"
+                    >Search
+                </button>
+              </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <table class="table w-100">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Bandera</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Poblacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pais of paises; let i=index">
+                <td>{{i + 1}}</td>
+                <td><img [src]="pais.flags.svg" 
+                         style="width: 50px;" 
+                         alt="">
+                </td>
+                <td>{{pais.name}}</td>
+                <td>{{pais.population | number}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
