@@ -8,6 +8,8 @@ import { PorCapitalComponent } from './pages/por-capital/por-capital.component';
 import { PorPaisComponent } from './pages/por-pais/por-pais.component';
 import { PaisPagesComponent } from './pages/pais-pages/pais-pages.component';
 import { FormsModule } from '@angular/forms';
+import { TablaPaisComponent } from './components/tabla-pais/tabla-pais.component';
+import { FormularioPaisComponent } from './components/formulario-pais/formulario-pais.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     PorRegionComponent,
        PorCapitalComponent,
        PorPaisComponent,
-       PaisPagesComponent
+       PaisPagesComponent,
+       TablaPaisComponent,
+       FormularioPaisComponent
   ],
   imports: [
     CommonModule,

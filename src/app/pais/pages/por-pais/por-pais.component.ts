@@ -18,8 +18,8 @@ export class PorPaisComponent implements OnInit {
     
   }
 
-  buscar(){
-    this.paisServices.getPais(this.termino)
+  buscar(event:string){
+    this.paisServices.getPais(this.termino = event)
        .subscribe((pais) => {
         console.log(pais);
         this.paises = pais;
